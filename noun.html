@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI平台与互联网全量名词百科 (超级加长版)</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #e0e7ff;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #475569;
+            --tag-bg: #e2e8f0;
+            --tag-text: #475569;
+            --metaphor-bg: #fef3c7;
+            --metaphor-text: #92400e;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 50px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 顶部固定搜索区 */
+        .header-area {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-area h1 {
+            font-size: 18px;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .search-box {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 15px 12px 40px;
+            border: 2px solid var(--primary-light);
+            border-radius: 25px;
+            font-size: 15px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        .search-box::before {
+            content: "🔍";
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+        }
+
+        /* 布局容器 */
+        .container {
+            padding: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .category-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1e293b;
+            margin: 25px 0 15px 0;
+            padding-left: 10px;
+            border-left: 5px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .desc {
+            font-size: 14px;
+            color: var(--text-sub);
+            margin-bottom: 10px;
+        }
+
+        .metaphor {
+            background-color: var(--metaphor-bg);
+            color: var(--metaphor-text);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            border-left: 3px solid #f59e0b;
+        }
+
+        .metaphor::before {
+            content: "💡 极简比喻：";
+            font-weight: bold;
+        }
+
+        /* 响应式 */
+        @media (min-width: 600px) {
+            .grid-container { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 1024px) {
+            .grid-container { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        /* 隐藏类 */
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <div class="header-area">
+        <h1>☁️ AI平台与互联网全量名词百科</h1>
+        <div class="search-box">
+            <input type="text" id="searchInput" >
+        </div>
+    </div>
+
+    <div class="container" id="contentArea">
+
+        <!-- 1. 互联网通用架构与网络 -->
+        <div class="category-title">1. 互联网通用架构与网络</div>
+        <div class="grid-container">
+            <div class="card">
+                <h3>API (应用程序接口)</h3>
+                <p class="desc">不同软件之间“对话”的通道。你调我的接口，我传数据给你。</p>
+                <div class="metaphor">像餐厅的“服务员”，你点菜，他传给后厨，再把菜端回来。</div>
+            </div>
+            <div class="card">
+                <h3>网关 (Gateway)</h3>
+                <p class="desc">系统的“大门”。所有外部请求都要先经过这里，进行安检、身份验证、分发。</p>
+                <div class="metaphor">像机场的“海关安检”，没带护照不让进，带违禁品直接拦下。</div>
+            </div>
+            <div class="card">
+                <h3>DNS (域名系统)</h3>
+                <p class="desc">把好记的网址（如 baidu.com）翻译成机器认识的 IP 地址。</p>
+                <div class="metaphor">互联网的“通讯录”，你说名字，它告诉你具体地址。</div>
+            </div>
+            <div class="card">
+                <h3>CDN (内容分发网络)</h3>
+                <p class="desc">把图片、视频提前放在离用户最近的服务器上，用户看视频就不卡了。</p>
+                <div class="metaphor">像京东的“前置仓”，直接从你家楼下仓库发货，不用从总部发。</div>
+            </div>
+            <div class="card">
+                <h3>反向代理 (Nginx)</h3>
+                <p class="desc">用户以为直接访问了服务器，其实是被代理服务器接客了，再由它转给内部服务器。</p>
+                <div class="metaphor">像公司的“前台”，客户找不到具体员工，前台先接待再转接。</div>
+            </div>
+            <div class="card">
+                <h3>微服务 (Microservices)</h3>
+                <p class="desc">把一个大系统拆成很多个小系统（如用户服务、订单服务），各自独立运行。</p>
+                <div class="metaphor">像大公司拆分成很多个“独立小部门”，各自负责一块，沟通靠对讲机。</div>
+            </div>
+            <div class="card">
+                <h3>消息队列 (MQ)</h3>
+                <p class="desc">把大量的请求先排队存起来，系统有空了再按顺序慢慢处理，防止系统崩溃。</p>
+                <div class="metaphor">像餐厅的“排号取餐”，点单太多后厨做不过来，先排号发牌。</div>
+            </div>
+            <div class="card">
+                <h3>RPC / gRPC</h3>
+                <p class="desc">远程过程调用。让程序像调用本地函数一样，去调用另一台电脑上的函数。</p>
+                <div class="metaphor">像打电话叫外卖，你不需要知道外卖小哥是怎么跑的，饭直接送到你手上。</div>
+            </div>
+            <div class="card">
+                <h3>RESTful API</h3>
+                <p class="desc">一种软件接口的设计规范，用 URL 代表资源，用 GET/POST 代表操作。</p>
+                <div class="metaphor">像图书馆的“查书规则”，找书用索取号，借书用借书证，非常规范。</div>
+            </div>
+            <div class="card">
+                <h3>WebSocket</h3>
+                <p class="desc">一种全双工通信协议，服务器可以主动给客户端发消息（不用你一直刷新）。</p>
+                <div class="metaphor">像打电话，双方随时可以插话，而不是像发短信那样必须等对方回。</div>
+            </div>
+        </div>
+
+        <!-- 2. 性能与高可用 -->
+        <div class="category-title">2. 性能与高可用 (怎么扛住大流量)</div>
+        <div class="grid-container">
+            <div class="card">
+                <h3>缓存 (Cache)</h3>
+                <p class="desc">把经常用的数据放在读写极快的存储器里，不用每次都去数据库翻。</p>
+                <div class="metaphor">把常用的工具放在“桌面”上，而不是每次都去“抽屉”里翻。</div>
+            </div>
+            <div class="card">
+                <h3>限流 (Rate Limiting)</h3>
+                <p class="desc">限制一秒钟能有多少人访问，超出的直接拒绝，保护系统不被冲垮。</p>
+                <div class="metaphor">像景区限流，人太多就不让进了，一秒钟只放进去 5 个人。</div>
+            </div>
+            <div class="card">
+                <h3>熔断 (Circuit Breaking)</h3>
+                <p class="desc">某个服务出故障卡死了，系统直接切断它，防止整个系统跟着被拖死。</p>
+                <div class="metaphor">像家里的“保险丝”，短路了直接断开，保护整个房子不烧起来。</div>
+            </div>
+            <div class="card">
+                <h3>降级 (Degradation)</h3>
+                <p class="desc">系统太忙了，为了保证核心功能（比如付钱），暂时关掉非核心功能（比如评论）。</p>
+                <div class="metaphor">双十一太忙了，为了让顾客能买单，暂时把大厅的空调关了省电。</div>
+            </div>
+            <div class="card">
+                <h3>高可用 (HA)</h3>
+                <p class="desc">系统永远不宕机（或者宕机时间极短）。一台机器坏了，另一台立刻顶上。</p>
+                <div class="metaphor">像“汽车备胎”，主轮胎爆了，备胎马上换上，车不停下。</div>
+            </div>
+            <div class="card">
+                <h3>负载均衡 (SLB)</h3>
+                <p class="desc">请求太多时，它把请求平均分给后面的多台服务器，防止把一台机器累死。</p>
+                <div class="metaphor">像银行的“大堂经理”，把你分流到空闲的窗口去办业务。</div>
+            </div>
+            <div class="card">
+                <h3>弹性伸缩 (Auto Scaling)</h3>
+                <p class="desc">人多了自动加机器，人少了自动减机器，省钱又省力。</p>
+                <div class="metaphor">像网约车平台，高峰期自动叫更多司机上线，平峰期让司机下线。</div>
+            </div>
+            <div class="card">
+                <h3>雪崩效应 (Avalanche)</h3>
+                <p class="desc">一个微小的故障，导致依赖它的服务接连崩溃，最后整个系统瘫痪。</p>
+                <div class="metaphor">像高速公路上有一辆车抛锚，后面连环追尾，整条路堵死。</div>
+            </div>
+        </div>
+
+        <!-- 3. 大模型进阶黑话 -->
+        <div class="category-title">3. 大模型进阶黑话 (AI 深度知识)</div>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Transformer</h3>
+                <p class="desc">目前所有大模型的基础架构（如 GPT 里的 T）。</p>
+                <div class="metaphor">像 AI 界的“万能发动机”，现在厉害的 AI 基本都是拿它改装的。</div>
+            </div>
+            <div class="card">
+                <h3>Attention (注意力机制)</h3>
+                <p class="desc">让 AI 在看一句话时，能自动知道哪个词最重要。</p>
+                <div class="metaphor">像你读句子时“画重点”，重点词多看两眼。</div>
+            </div>
+            <div class="card">
+                <h3>Embedding (向量化)</h3>
+                <p class="desc">把文字、图片变成一串数字，方便机器计算它们之间的相似度。</p>
+                <div class="metaphor">像给每个词发一个“身份证号”，长得像的词，身份证号也相近。</div>
+            </div>
+            <div class="card">
+                <h3>幻觉 (Hallucination)</h3>
+                <p class="desc">AI 一本正经地胡说八道，编造不存在的事实。</p>
+                <div class="metaphor">像喝醉了酒的人，跟你吹牛吹得跟真的一样。</div>
+            </div>
+            <div class="card">
+                <h3>多模态 (Multimodal)</h3>
+                <p class="desc">AI 不仅能看懂文字，还能看懂图片、听懂声音、看懂视频。</p>
+                <div class="metaphor">像五官齐全的人，既能看又能听还能说。</div>
+            </div>
+            <div class="card">
+                <h3>上下文窗口 (Context Window)</h3>
+                <p class="desc">AI 一次性能记住多少字。窗口越大，能塞给它的长文就越多。</p>
+                <div class="metaphor">像 AI 的“短期记忆容量”，脑容量不够，前面说的它就忘了。</div>
+            </div>
+            <div class="card">
+                <h3>参数量 (Parameters)</h3>
+                <p class="desc">模型内部数字的个数（如 70B 代表 700亿参数），越大通常越聪明，但也越贵。</p>
+                <div class="metaphor">像大脑里的“神经元数量”，越多脑回路越复杂。</div>
+            </div>
+            <div class="card">
+                <h3>蒸馏 (Distillation)</h3>
+                <p class="desc">让一个大模型当老师，教一个小模型，把小模型训练得也很聪明。</p>
+                <div class="metaphor">像大学教授把毕生所学浓缩成一本教材，教给中学生。</div>
+            </div>
+            <div class="card">
+                <h3>剪枝 (Pruning)</h3>
+                <p class="desc">把模型里不重要的部分剪掉，让它变小变快。</p>
+                <div class="metaphor">像给大树修剪枯枝，能长得更好。</div>
+            </div>
+            <div class="card">
+                <h3>开源 / 闭源模型</h3>
+                <p class="desc">开源是把模型代码公开，大家都能下载用；闭源是只能通过接口花钱调。</p>
+                <div class="metaphor">开源像“公开菜谱”，自己回家做；闭源像“去饭店吃”，花钱吃现成的。</div>
+            </div>
+        </div>
+
+        <!-- 4. 安全与鉴权 -->
+        <div class="category-title">4. 安全与鉴权</div>
+        <div class="grid-container">
+            <div class="card">
+                <h3>鉴权 / 授权</h3>
+                <p class="desc">鉴权是验证你是谁；授权是看你有没有权利干这件事。</p>
+                <div class="metaphor">保安查身份证（鉴权），然后看你有没有VIP票进贵宾室（授权）。</div>
+            </div>
+            <div class="card">
+                <h3>Token / JWT</h3>
+                <p class="desc">登录后服务器给你发的一串加密字符串，下次请求带着它就不用重新输密码。</p>
+                <div class="metaphor">像去医院挂号后给的就诊卡，去哪都刷它证明你付过钱了。</div>
+            </div>
+            <div class="card">
+                <h3>SSO (单点登录)</h3>
+                <p class="desc">在同一个公司的不同系统里，只要登录一次，其他系统直接进。</p>
+                <div class="metaphor">像去游乐园大门买一张通票，里面所有项目都不用再验票。</div>
+            </div>
+            <div class="card">
+                <h3>防火墙 (Firewall)</h3>
+                <p class="desc">监控网络流量的设备，挡住外面的黑客攻击和非法访问。</p>
+                <div class="metaphor">像小区的“保安亭+铁栅栏”，坏人进不来。</div>
+            </div>
+            <div class="card">
+                <h3>DDoS 攻击</h3>
+                <p class="desc">黑客控制几万台电脑同时访问你的网站，把服务器挤爆。</p>
+                <div class="metaphor">像雇了一万个流氓去你们店门口排队点单，把真顾客挤在外面。</div>
+            </div>
+            <div class="card">
+                <h3>SQL 注入 / XSS</h3>
+                <p class="desc">黑客在输入框里输入恶意代码，窃取数据或控制网页。</p>
+                <div class="metaphor">像在意见簿里写下了“魔咒”，谁看这个本子谁就中招。</div>
+            </div>
+            <div class="card">
+                <h3>数据脱敏 (Masking)</h3>
+                <p class="desc">把敏感信息（如手机号、身份证号）打上马赛克，防止泄露。</p>
+                <div class="metaphor">像给照片里的人脸打上马赛克。</div>
+            </div>
+            <div class="card">
+                <h3>零信任 (Zero Trust)</h3>
+                <p class="desc">默认谁都不信任，哪怕你在内网，每次访问也得验证身份。</p>
+                <div class="metaphor">像公司里谁都不信，进个厕所都要刷工牌。</div>
+            </div>
+        </div>
+
+        <!-- 5. 研发与运维日常 -->
+        <div class="category-title">5. 研发与运维日常 (程序员黑话)</div>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Bug / Debug</h3>
+                <p class="desc">程序里的错误，以及程序员抓出这些错误的过程。</p>
+                <div class="metaphor">像大米里混进的小虫子，以及挑虫子的过程。</div>
+            </div>
+            <div class="card">
+                <h3>测试环境 / 生产环境</h3>
+                <p class="desc">测试环境是给内部试错的；生产环境是给真实用户用的，绝对不能乱动。</p>
+                <div class="metaphor">“排练室”和“正式舞台”。排练怎么摔都行，上台绝不能出错。</div>
+            </div>
+            <div class="card">
+                <h3>灰度发布 (金丝雀)</h3>
+                <p class="desc">新功能先只给 1% 的用户用，没出 Bug，再慢慢推广给所有人。</p>
+                <div class="metaphor">像新口味冰淇淋，先拉一车给 10% 的顾客试吃，没问题再全城铺货。</div>
+            </div>
+            <div class="card">
+                <h3>回滚 (Rollback)</h3>
+                <p class="desc">新版本上线后发现出了大 Bug，赶紧撤下来，换回上一个没问题的版本。</p>
+                <div class="metaphor">像衣服拉链卡住了，直接“退回”到没拉的状态重来。</div>
+            </div>
+            <div class="card">
+                <h3>日志 (Log)</h3>
+                <p class="desc">程序运行时的流水账，出问题了全靠翻它来找原因。</p>
+                <div class="metaphor">像程序的“日记本”，记录每天发生了什么、哪里报错了。</div>
+            </div>
+            <div class="card">
+                <h3>重构 (Refactoring)</h3>
+                <p class="desc">不改变软件功能的前提下，把丑代码、烂代码重新写得更漂亮、更高效。</p>
+                <div class="metaphor">像“旧房翻新”，外表看不出变化，但里面的水电线路全换了。</div>
+            </div>
+            <div class="card">
+                <h3>技术债 (Tech Debt)</h3>
+                <p class="desc">为了赶进度，先写烂代码凑合上线，以后要花更多时间弥补。</p>
+                <div class="metaphor">像刷信用卡买买买，当时爽，以后要连本带利还回去。</div>
+            </div>
+            <div class="card">
+                <h3>MVP (最小可行性产品)</h3>
+                <p class="desc">先做一个勉强能跑、只有最核心功能的东西，扔到市场上试试水。</p>
+                <div class="metaphor">像造车先造个“滑板车”，能往前溜就行，以后再加轮子和发动机。</div>
+            </div>
+            <div class="card">
+                <h3>冒烟测试 (Smoke Test)</h3>
+                <p class="desc">新版本上线前，点一下核心按钮，看看会不会报错崩溃。</p>
+                <div class="metaphor">新买的电器插上电，看冒不冒烟（会不会烧坏）。</div>
+            </div>
+            <div class="card">
+                <h3>CR (代码评审)</h3>
+                <p class="desc">写完代码，让同事帮你检查一遍，看看有没有低级错误。</p>
+                <div class="metaphor">像写完作文，同桌互相检查一下错别字。</div>
+            </div>
+        </div>
+
+        <!-- 6. AI 算力与基础设施 -->
+        <div class="category-title">6. AI 算力与基础设施</div>
+        <div class="grid-container">
+            <div class="card">
+                <h3>GPU / 显存</h3>
+                <p class="desc">AI 专用芯片和它的短期记忆体。显存不够（OOM）模型直接崩。</p>
+                <div class="metaphor">像做菜的“专用猛火灶”和“砧板”，砧板太小放不下大西瓜。</div>
+            </div>
+            <div class="card">
+                <h3>资源池</h3>
+                <p class="desc">把成百上千台服务器汇集成一个大池子，按需分配。</p>
+                <div class="metaphor">像“共享汽车总站”，谁要用就去开一辆。</div>
+            </div>
+            <div class="card">
+                <h3>算力切分 (vGPU)</h3>
+                <p class="desc">把一张大显卡切成几小块，分给不同的任务同时用。</p>
+                <div class="metaphor">像把一整个大披萨切开，分给不同的人吃，不浪费。</div>
+            </div>
+            <div class="card">
+                <h3>裸金属 (Bare Metal)</h3>
+                <p class="desc">没有任何虚拟化层，直接给你一整台真实的物理服务器。</p>
+                <div class="metaphor">像不住酒店，直接租给你一整栋毛坯别墅，随便你怎么装修。</div>
+            </div>
+            <div class="card">
+                <h3>虚拟机 (VM)</h3>
+                <p class="desc">用软件在电脑里模拟出一台电脑，像真电脑一样用。</p>
+                <div class="metaphor">像在同一个房间里用屏风隔出好几个小房间。</div>
+            </div>
+            <div class="card">
+                <h3>Serverless (无服务器)</h3>
+                <p class="desc">你只管写代码，不用管服务器。运行时代码自动扩容，不跑时不收钱。</p>
+                <div class="metaphor">像用自来水，拧开水龙头就有，不用自己建水厂。</div>
+            </div>
+        </div>
+
+        <!-- 7. AI 存储与数据 -->
+        <div class="category-title">7. AI 存储与数据 (业务的粮食)</div>
+        <div class="grid-container">
+            <div class="card">
+                <h3>对象存储 / 文件存储</h3>
+                <p class="desc">存海量图片视频的大仓库，以及像共享文件夹一样的文件系统。</p>
+                <div class="metaphor">像“大快递柜”和“共享大网盘”。</div>
+            </div>
+            <div class="card">
+                <h3>数据集 (Dataset)</h3>
+                <p class="desc">给 AI 训练用的资料，比如几十万张图片、百万条对话。</p>
+                <div class="metaphor">给 AI 准备的“教材和题库”。</div>
+            </div>
+            <div class="card">
+                <h3>向量数据库 (Vector DB)</h3>
+                <p class="desc">专门存 AI 理解后的“多维数字”的数据库，能瞬间找到最相似的内容。</p>
+                <div class="metaphor">像拥有“按长相相似度找人”功能的超级相册。</div>
+            </div>
+            <div class="card">
+                <h3>ETL</h3>
+                <p class="desc">把数据从各个地方抽出来（Extract），洗干净（Transform），装进仓库（Load）。</p>
+                <div class="metaphor">像把各地收来的菜洗干净切好，统一放进冰箱备用。</div>
+            </div>
+            <div class="card">
+                <h3>数据仓库 / 数据湖</h3>
+                <p class="desc">仓库存整理好、结构化的数据；湖什么都可以扔进去，原生态。</p>
+                <div class="metaphor">仓库是“整齐的超市货架”；湖是“把啥都扔进去的天然湖”。</div>
+            </div>
+            <div class="card">
+                <h3>埋点 (Tracking)</h3>
+                <p class="desc">在网页或APP里埋下代码，偷偷记录用户点了什么、看了什么。</p>
+                <div class="metaphor">像在商场各个角落安装“隐形摄像头”，统计客人去哪家店多。</div>
+            </div>
+            <div class="card">
+                <h3>数据倾斜</h3>
+                <p class="desc">分配任务时，有的机器干到死，有的机器闲着。</p>
+                <div class="metaphor">像分蛋糕，一个人拿了90%，剩下的人抢剩下的10%。</div>
+            </div>
+        </div>
+
+        <!-- 8. 模型训练与微调 -->
+        <div class="category-title">8. 模型训练与微调</div>
+        <div class="grid-container">
+            <div class="card">
+                <h3>开发机 / 预训练</h3>
+                <p class="desc">云端写代码的电脑，以及让空白 AI 阅读海量文本学常识的过程。</p>
+                <div class="metaphor">像“备菜台”和让婴儿“上大学建立世界观”。</div>
+            </div>
+            <div class="card">
+                <h3>微调 (Fine-tuning)</h3>
+                <p class="desc">在已有模型基础上，用特定行业数据让它学得更专业。</p>
+                <div class="metaphor">像让大学生去参加“岗前专业培训”。</div>
+            </div>
+            <div class="card">
+                <h3>LoRA / SFT</h3>
+                <p class="desc">LoRA 是省显存的微调技术；SFT 指人类手把手教 AI。</p>
+                <div class="metaphor">LoRA 像“小外挂”；SFT 像请私教“一对一辅导”。</div>
+            </div>
+            <div class="card">
+                <h3>超参数 / Loss</h3>
+                <p class="desc">控制学习节奏的参数，以及衡量 AI 回答有多离谱的分数。</p>
+                <div class="metaphor">像炒菜的“火候”和考试的“错题数”。</div>
+            </div>
+            <div class="card">
+                <h3>过拟合 (Overfitting)</h3>
+                <p class="desc">AI 把训练资料死记硬背了，遇到新问题反而不会变通。</p>
+                <div class="metaphor">像学生死记硬背题库，换道题就不会做了。</div>
+            </div>
+            <div class="card">
+                <h3>RLHF / PPO / DPO</h3>
+                <p class="desc">人类给 AI 回答打分（RLHF），AI 根据分数调整自己，变得更符合人类喜好。</p>
+                <div class="metaphor">像训练小狗，做对了给零食，做错了不给，慢慢就学乖了。</div>
+            </div>
+        </div>
+
+        <!-- 9. 容器与工程化 -->
+        <div class="category-title">9. 容器与云原生工程</div>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Docker (容器)</h3>
+                <p class="desc">把代码和环境打包在一起，放到哪台机器都能直接跑。</p>
+                <div class="metaphor">标准的“集装箱”，到哪个码头都能直接吊上船。</div>
+            </div>
+            <div class="card">
+                <h3>K8s (Kubernetes)</h3>
+                <p class="desc">管理成百上千个容器的“超级管家”，坏了自动修。</p>
+                <div class="metaphor">管着成百上千个工人的“包工头”。</div>
+            </div>
+            <div class="card">
+                <h3>Pod / Node</h3>
+                <p class="desc">Pod 是最小运行单位；Node 是一台真实的服务器。</p>
+                <div class="metaphor">Pod 是“车厢”，Node 是“火车头”。</div>
+            </div>
+            <div class="card">
+                <h3>CI/CD</h3>
+                <p class="desc">写完代码自动测试、自动发布，不用人工去搞。</p>
+                <div class="metaphor">全自动化的“流水线”。</div>
+            </div>
+            <div class="card">
+                <h3>DevOps / SRE</h3>
+                <p class="desc">开发与运维结合，以及专门保证系统可靠性、不宕机的工程师。</p>
+                <div class="metaphor">像“既会修车又会开车的全能司机”和“专业的汽车保养师”。</div>
+            </div>
+            <div class="card">
+                <h3>服务网格 (Service Mesh)</h3>
+                <p class="desc">专门处理微服务之间复杂网络通信的基础设施。</p>
+                <div class="metaphor">像在各大部门之间穿梭的“专职快递员网络”。</div>
+            </div>
+            <div class="card">
+                <h3>单体架构 / 分布式</h3>
+                <p class="desc">所有代码在一个项目里（单体），或者拆散在不同服务器上（分布式）。</p>
+                <div class="metaphor">“一辆超级大巴车” vs “一百辆小轿车协同合作”。</div>
+            </div>
+        </div>
+
+        <!-- 10. AI 应用与智能体 -->
+        <div class="category-title">10. AI 智能体与应用</div>
+        <div class="grid-container">
+            <div class="card">
+                <h3>智能体 (Agent)</h3>
+                <p class="desc">具有自主思考、能调用工具，帮人类完成复杂任务的 AI。</p>
+                <div class="metaphor">你雇了一个“有专长的虚拟助理”。</div>
+            </div>
+            <div class="card">
+                <h3>MCP / Skill</h3>
+                <p class="desc">让 AI 连接外部工具的协议，以及给 AI 装具体能力的技能包。</p>
+                <div class="metaphor">给机器人加装的“万能外挂”和“技能书”。</div>
+            </div>
+            <div class="card">
+                <h3>RAG (检索增强生成)</h3>
+                <p class="desc">AI 遇到不会的，先去你们的资料库里搜一下，再综合回答。</p>
+                <div class="metaphor">开卷考试，遇到不会的题“先翻书”再作答。</div>
+            </div>
+            <div class="card">
+                <h3>Prompt (提示词)</h3>
+                <p class="desc">用户输入给 AI 的指令或问题。</p>
+                <div class="metaphor">给下属派发任务时写的“工单/备忘录”。</div>
+            </div>
+            <div class="card">
+                <h3>冷启动 (Cold Start)</h3>
+                <p class="desc">新系统或新用户没有任何历史数据时，系统难以给出推荐或服务。</p>
+                <div class="metaphor">像新开的餐厅，没人来过，不知道该给你推荐什么招牌菜。</div>
+            </div>
+        </div>
+
+        <!-- 11. 前端与Web体验 -->
+        <div class="category-title">11. 前端与Web体验</div>
+        <div class="grid-container">
+            <div class="card">
+                <h3>SPA (单页应用)</h3>
+                <p class="desc">整站只有一个网页，点来点去只是替换里面的内容，不刷新页面。</p>
+                <div class="metaphor">像看“电子书”，一直翻页，但书还是那本书。</div>
+            </div>
+            <div class="card">
+                <h3>SSR (服务端渲染)</h3>
+                <p class="desc">网页在服务器端拼装好再发给用户，加载快，利于搜索引擎抓取。</p>
+                <div class="metaphor">像餐厅直接端上一盘做好的“熟菜”，顾客直接吃。</div>
+            </div>
+            <div class="card">
+                <h3>DOM (文档对象模型)</h3>
+                <p class="desc">把网页变成树状结构，让 JavaScript 可以随便修改网页元素。</p>
+                <div class="metaphor">像网页的“家族族谱”，改了族谱，网页长相就变了。</div>
+            </div>
+            <div class="card">
+                <h3>跨域 (CORS)</h3>
+                <p class="desc">一个网站的页面，去请求另一个不同地址的数据时，浏览器安全限制会拦截。</p>
+                <div class="metaphor">像你隔壁老王家的院子（域名），你不打招呼不能随便进去拿东西。</div>
+            </div>
+            <div class="card">
+                <h3>响应式设计 (Responsive)</h3>
+                <p class="desc">网页能自动适应手机、平板、电脑屏幕尺寸。</p>
+                <div class="metaphor">像橡皮筋，怎么拉扯都能适应不同大小的屏幕。</div>
+            </div>
+            <div class="card">
+                <h3>UI / UX</h3>
+                <p class="desc">UI 是界面长得好不好看；UX 是用起来体验顺不顺手。</p>
+                <div class="metaphor">UI 是“人长得漂亮”；UX 是“性格好、相处舒服”。</div>
+            </div>
+            <div class="card">
+                <h3>A/B 测试</h3>
+                <p class="desc">同一个功能做两个版本，一半用户用 A，一半用 B，看哪个效果好。</p>
+                <div class="metaphor">像蒙眼喝两杯可乐，尝尝哪杯更好喝。</div>
+            </div>
+        </div>
+
+        <!-- 12. 产品、项目与运营 -->
+        <div class="category-title">12. 产品与运营黑话 (怎么赚钱)</div>
+        <div class="grid-container">
+            <div class="card">
+                <h3>PRD (产品需求文档)</h3>
+                <p class="desc">产品经理写给开发看的说明书，详细规定软件要怎么做。</p>
+                <div class="metaphor">像盖房子的“施工图纸”。</div>
+            </div>
+            <div class="card">
+                <h3>DAU / MAU</h3>
+                <p class="desc">日活跃用户数和月活跃用户数，衡量产品火不火的核心指标。</p>
+                <div class="metaphor">像餐馆每天和每月来吃饭的“客人数量”。</div>
+            </div>
+            <div class="card">
+                <h3>GMV (商品交易总额)</h3>
+                <p class="desc">不管最后退没退款，下单的总金额是多少。</p>
+                <div class="metaphor">像购物车里的总金额，看着很爽，但不一定全付款。</div>
+            </div>
+            <div class="card">
+                <h3>ROI (投资回报率)</h3>
+                <p class="desc">花出去的钱，赚回来多少倍。</p>
+                <div class="metaphor">花10块钱买彩票，中了100块，ROI就是10倍。</div>
+            </div>
+            <div class="card">
+                <h3>CTR / CVR</h3>
+                <p class="desc">点击率（多少人点了）和转化率（多少人最后付了钱）。</p>
+                <div class="metaphor">100人进店（点击），10人买了东西（转化）。</div>
+            </div>
+            <div class="card">
+                <h3>KPI / OKR</h3>
+                <p class="desc">KPI是硬性考核指标；OKR是目标和关键结果（更侧重方向）。</p>
+                <div class="metaphor">KPI是“这个月必须卖100万”；OKR是“拿下北方市场”。</div>
+            </div>
+            <div class="card">
+                <h3>漏斗模型 (Funnel)</h3>
+                <p class="desc">用户从进店到买单，每一步流失了多少人。</p>
+                <div class="metaphor">像漏斗，倒进去一大盆水，最后流出来的只有一小杯。</div>
+            </div>
+            <div class="card">
+                <h3>痛点 (Pain Point)</h3>
+                <p class="desc">用户特别烦恼、急需被解决的问题。</p>
+                <div class="metaphor">像鞋里的一粒沙子，不搞掉它，走路一直硌脚。</div>
+            </div>
+            <div class="card">
+                <h3>伪需求</h3>
+                <p class="desc">产品经理自己觉得很好，但用户根本不需要的功能。</p>
+                <div class="metaphor">像给盲人推荐高清 4K 电视，完全是瞎折腾。</div>
+            </div>
+        </div>
+
+        <!-- 13. 商业模式与云服务 -->
+        <div class="category-title">13. 商业模式与云服务</div>
+        <div class="grid-container">
+            <div class="card">
+                <h3>IaaS / PaaS / SaaS</h3>
+                <p class="desc">卖基础设施（服务器）、卖平台（开发环境）、卖软件（直接用的网页/APP）。</p>
+                <div class="metaphor">IaaS卖“毛坯房”；PaaS卖“带装修和家电的房”；SaaS卖“直接拎包入住的酒店”。</div>
+            </div>
+            <div class="card">
+                <h3>公有云 / 私有云 / 混合云</h3>
+                <p class="desc">大家一起用的云、公司自己内部用的云、两者结合的云。</p>
+                <div class="metaphor">“共享单车”、“自家私家车”、“自家车加偶尔租车”。</div>
+            </div>
+            <div class="card">
+                <h3>SLA (服务等级协议)</h3>
+                <p class="desc">平台向客户承诺的服务底线（如保证 99.9% 时间不宕机）。</p>
+                <div class="metaphor">商家的“假一赔十”或“保修三年”。</div>
+            </div>
+            <div class="card">
+                <h3>灾备 (Disaster Recovery)</h3>
+                <p class="desc">在另一个城市建一个一模一样的系统，主系统炸了，备用的顶上。</p>
+                <div class="metaphor">像给电脑做了个“异地云端备份”。</div>
+            </div>
+            <div class="card">
+                <h3>异地多活</h3>
+                <p class="desc">北京和上海都有机房，都能处理用户请求，死了一个另一个照常工作。</p>
+                <div class="metaphor">像有两个心脏，坏了一个另一个立刻替补。</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 搜索功能 JS -->
+    <script>
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.card');
+            const categoryTitles = document.querySelectorAll('.category-title');
+            const gridContainers = document.querySelectorAll('.grid-container');
+
+            // 遍历所有卡片
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if(text.includes(searchTerm)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            // 如果某个分类下所有卡片都被隐藏了，就把分类标题也隐藏
+            gridContainers.forEach((grid, index) => {
+                const visibleCards = grid.querySelectorAll('.card:not(.hidden)');
+                if (visibleCards.length === 0) {
+                    categoryTitles[index].classList.add('hidden');
+                } else {
+                    categoryTitles[index].classList.remove('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
